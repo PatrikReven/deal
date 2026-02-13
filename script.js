@@ -180,15 +180,17 @@ function setPhase(text, hint){
 }
 
 function newGame(){
-  const values = shuffle(MONEY_10);
-  const ids = shuffle(Array.from({length:10}, (_,i)=>i+1)); // random razpored vsakič
-  const cases = ids.map((id, idx)=>({
+  const values = shuffle(MONEY_10); // nagrade se premešajo vsakič
+  const ids = Array.from({ length: 10 }, (_, i) => i + 1); // škatle vedno 1..10 po vrsti
+  
+  const cases = ids.map((id, idx) => ({
     id,
-    value: values[idx],
+    value: values[idx], // naključna nagrada za vsako škatlo
     opened: false,
     isPlayer: false,
     revealed: null,
   }));
+  
 
   state = {
     cases,
