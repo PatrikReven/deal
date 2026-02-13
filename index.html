@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Škatle 🎁</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo">🎁</div>
+      <div>
+        <div class="title">Škatle</div>
+        <div class="sub">Izberi 1 škatlo, potem odpri ostale. Na koncu se razkrije tvoja.</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn ghost" id="btnHelp">Kako igrati</button>
+      <button class="btn" id="btnNew">Nova igra</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card side">
+      <div class="cardTitle">Tvoja škatla</div>
+
+      <div class="yourBox">
+        <div class="yourIcon">🎁</div>
+        <div class="yourMeta">
+          <div class="yourNum" id="yourNum">—</div>
+          <div class="yourHint" id="yourHint">Najprej klikni eno škatlo na desni.</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Odprto</div>
+          <div class="value" id="openedCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">Ostane</div>
+          <div class="value" id="leftCount">10</div>
+        </div>
+      </div>
+
+      <div class="cardTitle mt">Izpadle vrednosti</div>
+      <div class="values" id="values"></div>
+
+      <div class="tip">
+        <div class="tipTitle">Namig</div>
+        <div class="tipText">Škatle so vsakič naključno premešane.</div>
+      </div>
+    </section>
+
+    <section class="card board">
+      <div class="boardTop">
+        <div>
+          <div class="phase" id="phase">Izberi svojo škatlo</div>
+          <div class="hint" id="hint">Klikni eno škatlo, da postane tvoja.</div>
+        </div>
+        <div class="badge" id="badge">10 škatel</div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <!-- HELP -->
+  <div class="modalBack" id="helpBack" aria-hidden="true"></div>
+  <div class="modal" id="helpModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modalTop">
+      <div class="modalTitle">Kako igrati</div>
+      <button class="x" data-close="help">✕</button>
+    </div>
+    <div class="modalBody">
+      <ol class="list">
+        <li>Klikni <b>eno škatlo</b> → to je tvoja.</li>
+        <li>Nato klikaj ostale in jih <b>odpiraj</b>.</li>
+        <li>Ko odpreš vse ostale, se <b>tvoja škatla</b> dramatično razkrije.</li>
+      </ol>
+      <div class="small">Tipka: <b>Esc</b> zapre okno.</div>
+    </div>
+    <div class="modalFoot">
+      <button class="btn" data-close="help">OK</button>
+    </div>
+  </div>
+
+  <!-- REVEAL OVERLAY -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="overlayCard" role="dialog" aria-modal="true">
+      <div class="overlayTop">
+        <div class="overlayTitle" id="ovTitle">Odpiranje…</div>
+        <button class="x" id="ovClose">✕</button>
+      </div>
+
+      <div class="stage">
+        <div class="bigGift" id="bigGift">
+          <div class="bigLid"></div>
+          <div class="bigBox"></div>
+          <div class="bigRibbon"></div>
+          <div class="sparkles" id="sparkles"></div>
+          <div class="bigText" id="ovText">—</div>
+        </div>
+
+        <div class="stageMeta">
+          <div class="line" id="ovLine">—</div>
+          <div class="mini" id="ovMini">Klikni Nadaljuj.</div>
+          <button class="btn" id="ovGo">Nadaljuj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- END MODAL -->
+  <div class="modalBack" id="endBack" aria-hidden="true"></div>
+  <div class="modal" id="endModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modalTop">
+      <div class="modalTitle">Konec 🎉</div>
+      <button class="x" data-close="end">✕</button>
+    </div>
+    <div class="modalBody">
+      <div class="bigMoney" id="endMoney">—</div>
+      <div class="small" id="endLine">—</div>
+      <button class="btn" id="btnAgain">Igraj znova</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
