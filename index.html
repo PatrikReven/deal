@@ -3,67 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Škatle 🎁</title>
+  <title>Škatle</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="top">
-    <div class="brand">
-      <div class="logo">🎁</div>
-      <div>
-        <div class="title">Škatle</div>
-        <div class="sub">Izberi 1 škatlo, potem odpri ostale. Na koncu se razkrije tvoja.</div>
+  <header class="topbar">
+    <div class="topbarLeft">
+      <div class="brandMark">■</div>
+      <div class="brandText">
+        <div class="brandTitle">ŠKATLE</div>
       </div>
     </div>
 
-    <div class="actions">
+    <div class="topbarRight">
       <button class="btn ghost" id="btnHelp">Kako igrati</button>
       <button class="btn" id="btnNew">Nova igra</button>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card side">
-      <div class="cardTitle">Tvoja škatla</div>
-
-      <div class="yourBox">
-        <div class="yourIcon">🎁</div>
-        <div class="yourMeta">
-          <div class="yourNum" id="yourNum">—</div>
-          <div class="yourHint" id="yourHint">Najprej klikni eno škatlo na desni.</div>
+  <main class="screen">
+    <section class="studio card">
+      <aside class="sidePanel leftPanel">
+        <div class="sideHeader">
+          <div class="sideTitle">NAGRADE</div>
         </div>
-      </div>
+        <div class="prizeList" id="prizeListLeft"></div>
+      </aside>
 
-      <div class="stats">
-        <div class="stat">
-          <div class="label">Odprto</div>
-          <div class="value" id="openedCount">0</div>
+      <section class="centerStage cardInner">
+        <div class="stageFrame">
+          <div class="cameraArea">
+            <div class="cameraGlow"></div>
+
+            <div class="cameraTopInfo">
+              <div class="cameraStats">
+                <div class="miniStat">
+                  <span>IZBRANA</span>
+                  <b id="yourNum">—</b>
+                </div>
+                <div class="miniStat">
+                  <span>ODPRTO</span>
+                  <b id="openedCount">0</b>
+                </div>
+                <div class="miniStat">
+                  <span>OSTANE</span>
+                  <b id="leftCount">10</b>
+                </div>
+              </div>
+            </div>
+
+            <div class="blackStageBox"></div>
+
+            <div class="cameraBottomBar">
+              <div>
+                <div class="phase" id="phase">Izberi svojo škatlo</div>
+                <div class="hint" id="hint">Klikni eno škatlo spodaj, da postane tvoja.</div>
+              </div>
+              <div class="badge" id="badge">10 škatel</div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="label">Ostane</div>
-          <div class="value" id="leftCount">10</div>
+      </section>
+
+      <aside class="sidePanel rightPanel">
+        <div class="sideHeader">
+          <div class="sideTitle">NAGRADE</div>
         </div>
-      </div>
-
-      <div class="cardTitle mt">Izpadle vrednosti</div>
-      <div class="values" id="values"></div>
-
-      <div class="tip">
-        <div class="tipTitle">Namig</div>
-        <div class="tipText">Škatle so vsakič naključno premešane.</div>
-      </div>
+        <div class="prizeList" id="prizeListRight"></div>
+      </aside>
     </section>
 
-    <section class="card board">
-      <div class="boardTop">
-        <div>
-          <div class="phase" id="phase">Izberi svojo škatlo</div>
-          <div class="hint" id="hint">Klikni eno škatlo, da postane tvoja.</div>
-        </div>
-        <div class="badge" id="badge">10 škatel</div>
-      </div>
-
-      <div class="grid" id="grid"></div>
+    <section class="boardWrap card">
+      <div class="boardGrid" id="grid"></div>
     </section>
   </main>
 
@@ -78,7 +89,7 @@
       <ol class="list">
         <li>Klikni <b>eno škatlo</b> → to je tvoja.</li>
         <li>Nato klikaj ostale in jih <b>odpiraj</b>.</li>
-        <li>Ko odpreš vse ostale, se <b>tvoja škatla</b> dramatično razkrije.</li>
+        <li>Ko odpreš vse ostale, se <b>tvoja škatla</b> razkrije na koncu.</li>
       </ol>
       <div class="small">Tipka: <b>Esc</b> zapre okno.</div>
     </div>
@@ -99,7 +110,6 @@
         <div class="bigGift" id="bigGift">
           <div class="bigLid"></div>
           <div class="bigBox"></div>
-          <div class="bigRibbon"></div>
           <div class="sparkles" id="sparkles"></div>
           <div class="bigText" id="ovText">—</div>
         </div>
@@ -117,7 +127,7 @@
   <div class="modalBack" id="endBack" aria-hidden="true"></div>
   <div class="modal" id="endModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modalTop">
-      <div class="modalTitle">Konec 🎉</div>
+      <div class="modalTitle">Konec</div>
       <button class="x" data-close="end">✕</button>
     </div>
     <div class="modalBody">
